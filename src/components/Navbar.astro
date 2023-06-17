@@ -1,0 +1,13 @@
+---
+import { routes } from '../config/listRoutes'
+---
+
+<ul>
+  <li>
+    {
+      routes.map((route) => {
+        return <a href={route.path}>{route.name}</a>
+      })
+    }
+  </li>
+</ul>
