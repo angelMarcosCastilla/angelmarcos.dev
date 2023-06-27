@@ -1,0 +1,36 @@
+---
+import Subtitle from './Subtitle.astro'
+---
+
+<section class='py-8 px-5 dark:bg-slate-50/5 bg-green-900/5'>
+  <div class=''>
+    <Subtitle title='Sobre mi' />
+    <p class='text-lg'>
+      Soy un apasionado del desarrollo de software, especializado en la creación de soluciones
+      innovadoras y adaptadas a las necesidades del negocio. Mi enfoque se basa en el aprendizaje
+      constante, la colaboración en equipo y la mejora continua. Mi portafolio refleja mi dedicación
+      para ofrecer productos de alta calidad y una experiencia de usuario excepcional. Estoy
+      entusiasmado por enfrentar nuevos desafíos y contribuir al éxito de futuros proyectos.
+    </p>
+  </div>
+</section>
+
+<style>
+  img {
+    filter: grayscale(100%);
+  }
+  section {
+    position: relative;
+  }
+  section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-color: #1527c740;
+    z-index: -1;
+    filter: blur(100px);
+  }
+</style>
