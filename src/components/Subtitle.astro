@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string
+}
+const { title } = Astro.props
+---
+
+<h2 class="text-2xl bg-green-50 dark:bg-slate-900 font-bold">
+  {title}
+</h2>
+
+<style>
+  h2{
+    width: max-content;
+    padding:  ;
+    position: relative;
+  }
+  h2::after{
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 70%;
+    height: 3px;
+    border-radius: 10px;
+    background: #11998e;
+    background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
+    background: linear-gradient(to right, #38ef7d, #11998e);
+  }
+</style>

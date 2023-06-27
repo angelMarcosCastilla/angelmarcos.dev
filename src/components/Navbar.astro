@@ -2,12 +2,14 @@
 import { routes } from '../config/listRoutes'
 ---
 
-<ul>
-  <li>
-    {
-      routes.map((route) => {
-        return <a href={route.path}>{route.name}</a>
-      })
-    }
-  </li>
+<ul class='flex flex-row gap-8 text-base'>
+  {
+    routes.map((route) => {
+      return (
+        <li>
+          <a href={route.path}>{route.name}</a>
+        </li>
+      )
+    })
+  }
 </ul>

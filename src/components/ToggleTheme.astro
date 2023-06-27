@@ -1,0 +1,28 @@
+<button aria-label='toggle' id='toggle'>🔅</button>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const $swtich = document.querySelector('#toggle') as HTMLInputElement
+
+    if (!$swtich) return
+
+    const theme = localStorage.getItem('theme') ?? 'light'
+
+    if (theme === 'dark') {
+      $swtich.textContent = '🌙'
+    } else {
+      $swtich.textContent = '🔅'
+    }
+
+    $swtich?.addEventListener('click', () => {
+      const theme = localStorage.getItem('theme') ?? 'light'
+      const newtheme = theme === 'light' ? 'dark' : 'light'
+      if (newtheme === 'dark') {
+        $swtich.textContent = '🌙'
+      } else {
+        $swtich.textContent = '🔅'
+      }
+      localStorage.setItem('theme', newtheme)
+      document.documentElement.className = newtheme
+    })
+  })
+</script>
