@@ -5,17 +5,18 @@ interface Props {
 const { title } = Astro.props
 ---
 
-<h2 class="text-2xl bg-green-50 dark:bg-slate-900 font-bold">
+<h2 class='text-3xl font-bold'>
   {title}
 </h2>
 
 <style>
-  h2{
+  h2 {
     width: max-content;
-    padding:  ;
+    padding: ;
     position: relative;
+    margin-bottom: 2rem;
   }
-  h2::after{
+  h2::after {
     content: '';
     position: absolute;
     bottom: -4px;
