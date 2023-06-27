@@ -1,0 +1,44 @@
+---
+import Subtitle from './Subtitle.astro'
+---
+
+<section class='lg:py-14'>
+  <Subtitle title='Habilidades ' />
+  <div class='animationList'>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>4</div>
+    <div>4</div>
+    <div>4</div>
+    <div>4</div>
+    <div>5</div>
+  </div>
+</section>
+
+<style>
+  .animationList {
+    display: flex;
+    gap: 5rem;
+    overflow-x: scroll;
+    animation: animationSlider 5s linear alternate infinite;
+
+  }
+  .animationList div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    flex-shrink: 0;
+  }
+
+  @keyframes animationSlider {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100px);
+    }
+
+  }
+</style>
