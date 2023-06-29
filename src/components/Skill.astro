@@ -19,7 +19,7 @@ import Php from './icon/Php.astro'
 <section class='lg:py-14 background relative before:dark:bg-[#1527c740]'>
   <Subtitle title='Habilidades ' />
   <div
-    class='animationList mt-12 relative after:h-40 after:z-10 after:absolute after:top-0 after:left-0 after:w-60 after:bg-gradient-to-r after:from-green-50 after:to-transparent dark:after:from-slate-900 dark:after:to-transparent before:h-40 before:z-10 before:absolute before:top-0 before:right-0 before:w-60 before:bg-gradient-to-r before:from-transparent before:to-green-50 dark:before:from-transparent dark:before:to-slate-900'
+    class='animationList mt-12 relative after:h-40 after:z-10 after:absolute after:top-0 after:left-0 after:md-w-60 after:bg-gradient-to-r after:from-green-50 after:to-transparent dark:after:from-slate-900 dark:after:to-transparent before:h-40 before:z-10 before:absolute before:top-0 before:right-0 before:md-w-60 before:bg-gradient-to-r before:from-transparent before:to-green-50 dark:before:from-transparent dark:before:to-slate-900'
   >
     <div class='slide'>
       <div class='item'><div class='item-content'><Html /></div></div>
@@ -65,7 +65,12 @@ import Php from './icon/Php.astro'
   .animationList {
     overflow: hidden;
     --cantidad: 7;
-    --width: 200px;
+    --width: 120px;
+  }
+  @media screen and (min-width: 768px) {
+    .animationList {
+      --width: 200px;
+    }
   }
   .slide {
     display: flex;
@@ -92,7 +97,7 @@ import Php from './icon/Php.astro'
   }
   .item-content {
     width: calc(var(--width) / 2);
-    height: 100%;
+    height: calc(var(--width) / 2);
     display: grid;
     place-content: center;
     background-color: #14532d10;
