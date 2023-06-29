@@ -5,40 +5,57 @@ import Subtitle from './Subtitle.astro'
 <section class='lg:py-14'>
   <Subtitle title='Habilidades ' />
   <div class='animationList'>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>4</div>
-    <div>4</div>
-    <div>4</div>
-    <div>4</div>
-    <div>5</div>
+    <div class='slide'>
+      <div class='item'><div class='item-content'>1</div></div>
+      <div class='item'><div class='item-content'>2</div></div>
+      <div class='item'><div class='item-content'>3</div></div>
+      <div class='item'><div class='item-content'>4</div></div>
+      <div class='item'><div class='item-content'>5</div></div>
+      <div class='item'><div class='item-content'>6</div></div>
+      <div class='item'><div class='item-content'>7</div></div>
+      <div class='item'><div class='item-content'>8</div></div>
+      <div class='item'><div class='item-content'>1</div></div>
+      <div class='item'><div class='item-content'>2</div></div>
+      <div class='item'><div class='item-content'>3</div></div>
+      <div class='item'><div class='item-content'>4</div></div>
+      <div class='item'><div class='item-content'>5</div></div>
+      <div class='item'><div class='item-content'>6</div></div>
+      <div class='item'><div class='item-content'>7</div></div>
+      <div class='item'><div class='item-content'>8</div></div>
+    </div>
   </div>
 </section>
 
 <style>
   .animationList {
-    display: flex;
-    gap: 5rem;
-    overflow-x: scroll;
-    animation: animationSlider 5s linear alternate infinite;
-
+    overflow-x: hidden;
+    --cantidad: 8;
+    --width: 200px;
   }
-  .animationList div {
-    width: 100px;
+  .slide {
+    display: flex;
+    width: calc(var(--width) * (var(--cantidad) * 2));
+    animation: animationSlider 30s linear infinite;
+  }
+  .item {
+    width: var(--width);
     height: 100px;
-    background-color: red;
     flex-shrink: 0;
   }
-
+.item-content{
+  width: calc(var(--width) / 2);
+  background: green;
+  height: 100%;
+}
+  .slide:has(.item-content:hover) {
+    animation-play-state: paused;
+  }
   @keyframes animationSlider {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-100px);
+      transform: translateX(calc(-1 * var(--width) * var(--cantidad)));
     }
-
   }
 </style>
