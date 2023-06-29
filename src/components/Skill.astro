@@ -1,55 +1,111 @@
 ---
 import Subtitle from './Subtitle.astro'
+import Html from './icon/Html.astro'
+import Css from './icon/Css.astro'
+import Js from './icon/Js.astro'
+import React from './icon/React.astro'
+import MaterialUi from './icon/MaterialUi.astro'
+import Reactroute from './icon/Reactroute.astro'
+import Next from './icon/Next.astro'
+import AstroIcon from './icon/AstroIcon.astro'
+import Svelte from './icon/Svelte.astro'
+import NodeIcon from './icon/NodeIcon.astro'
+import Mysql from './icon/Mysql.astro'
+import Tailwind from './icon/Tailwind.astro'
+import Redux from './icon/Redux.astro'
+import Php from './icon/Php.astro'
 ---
 
-<section class='lg:py-14'>
+<section class='lg:py-14 background relative before:dark:bg-[#1527c740]'>
   <Subtitle title='Habilidades ' />
-  <div class='animationList'>
+  <div
+    class='animationList mt-12 relative after:h-40 after:z-10 after:absolute after:top-0 after:left-0 after:w-60 after:bg-gradient-to-r after:from-green-50 after:to-transparent dark:after:from-slate-900 dark:after:to-transparent before:h-40 before:z-10 before:absolute before:top-0 before:right-0 before:w-60 before:bg-gradient-to-r before:from-transparent before:to-green-50 dark:before:from-transparent dark:before:to-slate-900'
+  >
     <div class='slide'>
-      <div class='item'><div class='item-content'>1</div></div>
-      <div class='item'><div class='item-content'>2</div></div>
-      <div class='item'><div class='item-content'>3</div></div>
-      <div class='item'><div class='item-content'>4</div></div>
-      <div class='item'><div class='item-content'>5</div></div>
-      <div class='item'><div class='item-content'>6</div></div>
-      <div class='item'><div class='item-content'>7</div></div>
-      <div class='item'><div class='item-content'>8</div></div>
-      <div class='item'><div class='item-content'>1</div></div>
-      <div class='item'><div class='item-content'>2</div></div>
-      <div class='item'><div class='item-content'>3</div></div>
-      <div class='item'><div class='item-content'>4</div></div>
-      <div class='item'><div class='item-content'>5</div></div>
-      <div class='item'><div class='item-content'>6</div></div>
-      <div class='item'><div class='item-content'>7</div></div>
-      <div class='item'><div class='item-content'>8</div></div>
+      <div class='item'><div class='item-content'><Html /></div></div>
+      <div class='item'><div class='item-content'><Css /></div></div>
+      <div class='item'><div class='item-content'><Js /></div></div>
+      <div class='item'><div class='item-content'><React /></div></div>
+      <div class='item'><div class='item-content'><MaterialUi /></div></div>
+      <div class='item'><div class='item-content'><Reactroute /></div></div>
+      <div class='item'><div class='item-content'><Next /></div></div>
+      <div class='item'><div class='item-content'><Html /></div></div>
+      <div class='item'><div class='item-content'><Css /></div></div>
+      <div class='item'><div class='item-content'><Js /></div></div>
+      <div class='item'><div class='item-content'><React /></div></div>
+      <div class='item'><div class='item-content'><MaterialUi /></div></div>
+      <div class='item'><div class='item-content'><Reactroute /></div></div>
+      <div class='item'><div class='item-content'><Next /></div></div>
+    </div>
+  </div>
+
+  <div
+    class='animationList mt-8 relative after:h-40 after:z-10 after:absolute after:top-0 after:left-0 after:w-60 after:bg-gradient-to-r after:from-green-50 after:to-transparent dark:after:from-slate-900 dark:after:to-transparent before:h-40 before:z-10 before:absolute before:top-0 before:right-0 before:w-60 before:bg-gradient-to-r before:from-transparent before:to-green-50 dark:before:from-transparent dark:before:to-slate-900'
+  >
+    <div class='slide slide-reverse'>
+      <div class='item'><div class='item-content'><AstroIcon /></div></div>
+      <div class='item'><div class='item-content'><Svelte /></div></div>
+      <div class='item'><div class='item-content'><NodeIcon /></div></div>
+      <div class='item'><div class='item-content'><Mysql /></div></div>
+      <div class='item'><div class='item-content'><Tailwind /></div></div>
+      <div class='item'><div class='item-content'><Redux /></div></div>
+      <div class='item'><div class='item-content'><Php /></div></div>
+      <div class='item'><div class='item-content'><AstroIcon /></div></div>
+      <div class='item'><div class='item-content'><Svelte /></div></div>
+      <div class='item'><div class='item-content'><NodeIcon /></div></div>
+      <div class='item'><div class='item-content'><Mysql /></div></div>
+      <div class='item'><div class='item-content'><Tailwind /></div></div>
+      <div class='item'><div class='item-content'><Redux /></div></div>
+      <div class='item'><div class='item-content'><Next /></div></div>
     </div>
   </div>
 </section>
 
 <style>
   .animationList {
-    overflow-x: hidden;
-    --cantidad: 8;
+    overflow: hidden;
+    --cantidad: 7;
     --width: 200px;
   }
   .slide {
     display: flex;
     width: calc(var(--width) * (var(--cantidad) * 2));
-    animation: animationSlider 30s linear infinite;
+    animation: animationSlider 20s linear infinite;
+  }
+  .slide-reverse {
+    animation: animationSlider 30s linear infinite reverse;
   }
   .item {
     width: var(--width);
     height: 100px;
     flex-shrink: 0;
   }
-.item-content{
-  width: calc(var(--width) / 2);
-  background: green;
-  height: 100%;
-}
+  .background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 300px;
+    aspect-ratio: 1/1;
+    filter: blur(120px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .item-content {
+    width: calc(var(--width) / 2);
+    height: 100%;
+    display: grid;
+    place-content: center;
+    background-color: #14532d10;
+    backdrop-filter: blur(10px);
+  }
+
+  :global(.dark) .item-content {
+    background-color: #ffffff15;
+  }
   .slide:has(.item-content:hover) {
     animation-play-state: paused;
   }
+
   @keyframes animationSlider {
     0% {
       transform: translateX(0);
