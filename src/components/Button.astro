@@ -1,0 +1,16 @@
+---
+interface Props {
+  text: string
+  variant: 'primary' | 'secondary'
+}
+
+const { text, variant } = Astro.props
+const variantClass = {
+  primary: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded',
+  secondary: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded'
+}
+
+const buttonClass = variantClass[variant] ?? variantClass.primary
+---
+
+<button class={`px-4 py-2 ${buttonClass}`}>{text}</button>

@@ -24,7 +24,7 @@ const { title, description } = Astro.props
 			document.documentElement.classList.add(theme)
 		</script>
 
-		<nav class='bg-slate-800/5 dark:bg-slate-50/5'>
+		<nav class='bg-slate-800/5 dark:bg-slate-50/5 z-50'>
 			<Container>
 				<div class='flex py-5 justify-between'>
 					<Navbar />
@@ -41,7 +41,7 @@ const { title, description } = Astro.props
 <style>
 	nav {
 		background-color: #ffffff05;
-		backdrop-filter: blur(5px);
+		backdrop-filter: blur(20px);
 		position: sticky;
 		top: 0;
 	}

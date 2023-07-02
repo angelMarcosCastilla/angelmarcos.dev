@@ -1,0 +1,45 @@
+---
+import ProjectItem from '@/components/ProjectItem.astro'
+import Subtitle from '@/components/Subtitle.astro'
+---
+
+<section class='py-5 lg:py-12'>
+  <Subtitle title='Mis Proyectos' />
+  <section class='flex flex-col gap-y-24 mt-20 project relative'>
+    <ProjectItem />
+    <ProjectItem />
+    <ProjectItem />
+    <ProjectItem />
+    <ProjectItem />
+    <ProjectItem />
+  </section>
+</section>
+
+<style>
+  .project::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -10;
+    filter: blur(500px);
+    mix-blend-mode: exclusion;
+  }
+
+  :global(.dark) .project::after {
+    background: hsla(192, 95%, 50%, 1);
+
+    background: linear-gradient(90deg, hsla(192, 95%, 50%, 1) 0%, hsla(225, 89%, 47%, 1) 100%);
+
+    background: -moz-linear-gradient(90deg, hsla(192, 95%, 50%, 1) 0%, hsla(225, 89%, 47%, 1) 100%);
+
+    background: -webkit-linear-gradient(
+      90deg,
+      hsla(192, 95%, 50%, 1) 0%,
+      hsla(225, 89%, 47%, 1) 100%
+    );
+  }
+</style>

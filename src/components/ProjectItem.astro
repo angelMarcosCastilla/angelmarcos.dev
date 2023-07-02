@@ -1,0 +1,37 @@
+---
+import Button from '@/components/Button.astro'
+---
+
+<article class='w-full min-h-[300px] flex gap-28 items'>
+  <div class='lg:flex-1'>
+    <h2 class='text-xl mb-4'>Pokemon memory</h2>
+    <p class='mb-10'>
+      una aplicacion donde podras realizar el juego de pokemomery para poder jugar no Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit. Numquam ipsa quo cumque rerum autem saepe
+      ratione necessitatibus aperiam, beatae deleniti eius ipsum sunt, illum fugit. Doloribus nulla
+      rerum ea quisquam!
+    </p>
+    <div class='gap-6 flex'>
+      <Button text='Ver demo' variant='primary' />
+      <Button text='ver repositorio' variant='secondary' />
+    </div>
+  </div>
+  <div class='lg:flex-1'>
+    <img
+      class='w-full h-full object-cover'
+      loading='lazy'
+      fetchpriority='low'
+      src='https://angel-marcos-portafolio.vercel.app/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fportafolio-2c11f.appspot.com%2Fo%2Fproyects%252F48f57685-b60f-4981-a534-bba34bb52ec5.jpg%3Fgeneration%3D1662995089133270%26alt%3Dmedia&w=640&q=75'
+      alt=''
+    />
+  </div>
+</article>
+
+<style>
+  .items:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  img {
+    filter: saturate(0.7);
+  }
+</style>
