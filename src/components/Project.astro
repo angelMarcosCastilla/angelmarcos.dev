@@ -1,17 +1,22 @@
 ---
 import ProjectItem from '@/components/ProjectItem.astro'
 import Subtitle from '@/components/Subtitle.astro'
+import { proyects } from '@/config/projectData'
 ---
 
 <section class='py-5 lg:py-12'>
   <Subtitle title='Mis Proyectos' />
   <section class='flex flex-col gap-y-24 mt-20 project relative'>
-    <ProjectItem />
-    <ProjectItem />
-    <ProjectItem />
-    <ProjectItem />
-    <ProjectItem />
-    <ProjectItem />
+    {
+      proyects.map((proyect) => (
+        <ProjectItem
+          title={proyect.title}
+          description={proyect.description}
+          image={proyect.image}
+          tecnologias={proyect.tecnologias}
+        />
+      ))
+    }
   </section>
 </section>
 
