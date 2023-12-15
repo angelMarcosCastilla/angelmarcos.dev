@@ -10,12 +10,22 @@ export interface ProyectI {
 export const proyects: ProyectI[] = [
   {
     image:
-      'https://res.cloudinary.com/dggsqddcf/image/upload/v1654790050/portafolio/n8whff8varfqm6ubdsuv.png',
-    title: 'Pokememory',
+      'https://i.imgur.com/QiD7AWK.png',
+    title: 'Country App',
     description:
-      'Juego de memoria de pokemon, el juego consiste en encontrar las parejas de pokemon',
-    tecnologias: "Html, css, JavasSript",
-    demoLink: 'https://pokememory.vercel.app/',
-    repoLink: 'jola'
+      'Una aplicación que muestra todos los países del mundo y su detalle esta es basada en unos de los retos  de Frontend Mentor, esta aplicación consume la API restcountries para poder mostrar los datos de los países',
+    tecnologias: "React, Next js, Tailwind css",
+    demoLink: 'https://country-next-app.vercel.app/',
+    repoLink: 'https://github.com/angelMarcosCastilla/country-next-app'
+  },
+  {
+    image:
+      'https://i.imgur.com/xLXdSLf.png',
+    title: 'Sistema de admisión',
+    description:
+      'Este proyecto representa una iniciativa innovadora desarrollada como parte del término de la carrera de Ingeniería de Software. Se centra en la creación de un sistema integral de admisión en línea y gestión de informes médicos diseñado específicamente para optimizar los procesos en el prestigioso Centro Médico Melchorita Saravia.',
+    tecnologias: "React, Tailwind css, nodejs, express, NextUI",
+    demoLink: 'https://centro-medico-frontend.vercel.app/',
+    repoLink: 'https://github.com/angelMarcosCastilla/centro-medico-frontend'
   }
 ]

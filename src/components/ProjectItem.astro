@@ -1,14 +1,15 @@
 ---
-import Button from '@/components/Button.astro'
+import { variantClass } from '@/components/Button.astro'
 import type { ProyectI } from '@/config/projectData'
+import ImageLazy from './ImageLazy.svelte'
 
 interface Props extends ProyectI {}
 
 const { demoLink, description, image, repoLink, tecnologias, title } = Astro.props
 ---
 
-<article class='w-full min-h-[300px] flex gap-28 items'>
-  <div class='lg:flex-1'>
+<article class='w-full min-h-[300px] flex flex-col  lg:flex-row lg:gap-28 gap-8 odd:lg:flex-row-reverse'>
+  <div class='flex-1'>
     <h2 class='text-xl mb-4'>{title}</h2>
     <p class='mb-5'>
       {description}
@@ -17,25 +18,19 @@ const { demoLink, description, image, repoLink, tecnologias, title } = Astro.pro
       <span class='font-bold'>Tecnologias:</span> {tecnologias}
     </p>
     <div class='gap-6 flex'>
-      <Button text='Ver demo' variant='primary' />
-      <Button text='Ver Repositorio' variant='secondary' />
+      <a href={demoLink} target="_blank" rel="noopener noreferrer" class={variantClass.primary}> Demo</a>
+      <a href={repoLink} rel="noopener noreferrer" class={variantClass.secondary}>Repositorio</a>
     </div>
   </div>
-  <div class='lg:flex-1'>
-    <img
-      class='w-full h-full object-cover'
-      loading='lazy'
-      fetchpriority='low'
-      src={image}
-      alt=''
-    />
+  <div class='flex-1'>
+    <ImageLazy image={image} client:visible/>
   </div>
 </article>
 
 <style>
-  .items:nth-child(odd) {
+  /* .items:nth-child(odd) {
     flex-direction: row-reverse;
-  }
+  } */
   img {
     filter: saturate(0.7);
   }

@@ -5,18 +5,12 @@ interface Props {
 }
 
 const { text, variant } = Astro.props
-const variantClass = {
-  primary: 'primary font-bold py-2 px-4 text-slate-800 rounded',
+export const variantClass = {
+  primary: 'primary font-bold py-2 px-4 text-slate-800 rounded bg-[#11998e]',
   secondary: 'bg-gray-800 hover:bg-em-900 text-white font-bold py-2 px-4 rounded'
 }
 
-const buttonClass = variantClass[variant] ?? variantClass.primary
+const buttonClass = variantClass[variant as keyof typeof variantClass] ?? variantClass.primary
 ---
 
 <button class={`px-4 py-2 ${buttonClass} `}>{text}</button>
-
-<style>
-  .primary {
-    background: #11998e;
-  }
-</style>

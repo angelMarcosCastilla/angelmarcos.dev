@@ -4,12 +4,14 @@ import Subtitle from '@/components/Subtitle.astro'
 import { proyects } from '@/config/projectData'
 ---
 
-<section class='py-5 lg:py-12'>
+<section class='py-9 lg:py-16'>
   <Subtitle title='Mis Proyectos' />
   <section class='flex flex-col gap-y-24 mt-20 project relative'>
     {
       proyects.map((proyect) => (
         <ProjectItem
+          demoLink={proyect.demoLink}
+          repoLink={proyect.repoLink}
           title={proyect.title}
           description={proyect.description}
           image={proyect.image}
