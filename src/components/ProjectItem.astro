@@ -23,7 +23,7 @@ const { demoLink, description, image, repoLink, tecnologias, title } = Astro.pro
     </div>
   </div>
   <div class='flex-1'>
-    <ImageLazy image={image} client:visible/>
+    <ImageLazy image={image} alt={`imagen de ${title}`} client:visible />
   </div>
 </article>
 
