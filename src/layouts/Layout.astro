@@ -1,6 +1,5 @@
 ---
-import Navbar from '../components/Navbar.astro'
-import ToggleTheme from '../components/ToggleTheme.astro'
+import Header from '../components/Header.astro'
 import Container from '../components/Container.astro'
 export interface Props {
 	title: string
@@ -19,26 +18,14 @@ const { title, description } = Astro.props
 		<title>{title}</title>
 	</head>
 	<body class='bg-green-50 dark:bg-slate-900 relative dark:text-slate-100'>
-		<script is:inline>
-			const theme = localStorage.getItem('theme') ?? 'dark'
-			document.documentElement.classList.add(theme)
-		</script>
-
-		<nav class='bg-slate-800/5 dark:bg-slate-50/5 z-50'>
-			<Container>
-				<div class='flex py-5 justify-between'>
-					<Navbar />
-					<ToggleTheme />
-				</div>
-			</Container>
-		</nav>
+		<Header/>
 		<Container>
 			<slot />
 		</Container>
 	</body>
 </html>
 
-<style>
+<style is:global>
 	body::after {
 		position: absolute;
 		content: '';

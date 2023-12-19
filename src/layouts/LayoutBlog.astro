@@ -1,13 +1,17 @@
 ---
+import Container from '@/components/Container.astro'
+import Header from '@/components/Header.astro'
 export interface Props {
 	title: string
 	description: string
+	otro: string
   frontmatter: {
     title: string
     description: string
+		date: string
+		minutes: number
   }
 }
-
 const { title, description, frontmatter } = Astro.props
 ---
 
@@ -19,7 +23,30 @@ const { title, description, frontmatter } = Astro.props
 		<meta name='viewport' content='width=device-width' />
 		<title>{frontmatter?.title ?? title}</title>
 	</head>
-	<body class='bg-slate-900'>
-		<slot />
+	<body class='bg-green-50 dark:bg-slate-900 relative dark:text-slate-100 '>
+		<Header/>
+		<Container>
+			<div class="max-w-[900px] mx-auto mb-6">
+				<h1 class="dark:text-yellow-500 text-yellow-700 text-3xl my-6">{frontmatter.title}</h1>
+				<span class="-mt-5 block mb-8 text-sm">{frontmatter.date} | {frontmatter.minutes} minutos de lectura</span>
+				<slot />
+			</div>
+		</Container>
 	</body>
 </html>
+<style is:global>
+	p{
+		margin-bottom: 1.5rem;
+		line-height: 26px;
+	}
+	h2{
+		margin: 1rem 0;
+		font-size: 18px;
+		@apply text-red-500
+	}
+	pre{
+		padding: 10px;
+		border-radius: 8px;
+		margin: 2.5rem 0;
+	}
+</style>

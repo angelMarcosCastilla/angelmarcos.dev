@@ -1,0 +1,20 @@
+---
+import Container from './Container.astro'
+import Navbar from './Navbar.astro'
+import ToggleTheme from './ToggleTheme.astro';
+
+---
+
+<script is:inline>
+  const theme = localStorage.getItem('theme') ?? 'dark'
+  document.documentElement.classList.add(theme)
+</script>
+
+<nav class='bg-slate-800/5 dark:bg-slate-50/5 z-50'>
+  <Container>
+    <div class='flex py-5 justify-between'>
+      <Navbar />
+      <ToggleTheme />
+    </div>
+  </Container>
+</nav>

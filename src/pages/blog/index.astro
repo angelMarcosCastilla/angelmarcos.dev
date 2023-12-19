@@ -1,14 +1,18 @@
 ---
+import Layout from '@/layouts/Layout.astro'
 const blog = await Astro.glob('./*.md')
 ---
-<div>
+<Layout title='Angel Marcos | Blog 📚' description='lista de los blog'>
+  <h1 class="my-6 text-xl text-yellow-500">Publicaciones recientes</h1>
+  <section class="flex flex-col gap-y-4">
   {
     blog.map((post) => (
-      <div>
-        <h1>{post.url}</h1>
-        <p>{post.frontmatter.title}</p>
-        <p>{post.frontmatter.description}</p>
+      <a href={post.url} class="rounded-lg border bg-card text-card-foreground shadow-sm hover:border hover:border-yellow-500">
+      <div class="flex flex-col space-y-1.5 p-4 px-5">
+        <h3 class="text-xl font-bold">{post.frontmatter.title}</h3>
+        <p class="text-gray-500 dark:text-gray-400">{post.frontmatter.date}</p>
       </div>
+      </a>
     ))
   }
-</div>
+</section></Layout>
