@@ -27,5 +27,15 @@ export const proyects: ProyectI[] = [
     tecnologias: "React, Tailwind css, nodejs, express, NextUI",
     demoLink: 'https://centro-medico-frontend.vercel.app/',
     repoLink: 'https://github.com/angelMarcosCastilla/centro-medico-frontend'
+  },
+  {
+    image:
+      'https://i.imgur.com/qG7prmF.png',
+    title: 'Acortador de url',
+    description:
+      'Este proyecto consiste en generar url corta de manera mas sencilla',
+    tecnologias: "React, Tailwind css, Nexjs, redis",
+    demoLink: 'https://s-url-five.vercel.app/',
+    repoLink: 'https://github.com/angelMarcosCastilla/s-url'
   }
 ]

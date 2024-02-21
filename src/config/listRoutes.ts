@@ -12,8 +12,8 @@ export const routes: IRoute[] = [
     path: '/blog',
     name: 'Blog'
   },
-  {
+ /*  {
     path: '/contact',
     name: 'Contact'
-  }
+  } */
 ]
