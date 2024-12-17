@@ -1,37 +1,34 @@
 ---
-import { variantClass } from '@/components/Button.astro'
 import type { ProyectI } from '@/config/projectData'
 import ImageLazy from './ImageLazy.svelte'
+import { buttonVariants } from './ui/button'
+import { GithubIcon } from 'lucide-svelte'
 
 interface Props extends ProyectI {}
 
 const { demoLink, description, image, repoLink, tecnologias, title } = Astro.props
 ---
 
-<article class='w-full min-h-[300px] flex flex-col  lg:flex-row lg:gap-28 gap-8 odd:lg:flex-row-reverse'>
+<article
+  class='w-full min-h-[250px] flex flex-col lg:flex-row lg:gap-28 gap-8 odd:lg:flex-row-reverse'
+>
   <div class='flex-1'>
-    <h2 class='text-xl mb-4'>{title}</h2>
-    <p class='mb-5'>
+    <h2 class='text-xl mb-2'>{title}</h2>
+    <p class='mb-5 text-secondary-foreground'>
       {description}
     </p>
-    <p class="mb-8">
-      <span class='font-bold'>Tecnologias:</span> {tecnologias}
-    </p>
-    <div class='gap-6 flex'>
-      <a href={demoLink} target="_blank" rel="noopener noreferrer" class={variantClass.primary}> Demo</a>
-      <a href={repoLink} rel="noopener noreferrer" class={variantClass.secondary}>Repositorio</a>
+
+    <div class='gap-2 flex'>
+      <a href={demoLink} target='_blank' rel='noopener noreferrer' class={buttonVariants({ variant: 'outline' })}>
+        Demo</a
+      >
+      <a href={repoLink} rel='noopener noreferrer' target="_blank"  class={buttonVariants({ variant: 'secondary' })}>
+        <GithubIcon class='h-4 w-4' />
+        Repositorio</a
+      >
     </div>
   </div>
-  <div class='flex-1'>
+  <div class='flex-1 '>
     <ImageLazy image={image} alt={`imagen de ${title}`} client:visible />
   </div>
 </article>
-
-<style>
-  /* .items:nth-child(odd) {
-    flex-direction: row-reverse;
-  } */
-  img {
-    filter: saturate(0.7);
-  }
-</style>

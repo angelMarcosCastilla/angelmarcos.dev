@@ -1,26 +1,29 @@
 ---
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/utils'
-import {Github} from "lucide-svelte"
+import { Github } from 'lucide-svelte'
 ---
 
-<section class='py-20'>
-  <div class='flex flex-col max-w-[500px] mx-auto'>
-    <h1 class="mb-7">
+<section class='py-20 relative'>
+  <div class='flex flex-col max-w-[560px] mx-auto'>
+    <h1 class='mb-7'>
       <span class='block text-xl'>Hola 👋, Soy</span>
       <span class='text-5xl font-bold'>Angel Marcos</span>
     </h1>
-    <div class="mb-6">
+    <div class='mb-6'>
       <h2 class='text-xl font-bold mb-2'>Desarrollador web - Frontend</h2>
-      <p class='text-base'>
+      <p class='text-base text-balance text-secondary-foreground'>
         Apasionado por la creación de páginas web, que sean accesible e impactante. Especializado en
         crear experiencias digitales excepcionales.
       </p>
     </div>
-    <div class="flex gap-x-4">
-      <a class={cn(buttonVariants({ variant: 'outline' }), 'cursor-pointer')}><Github/>Github</a>
-      <a class={cn(buttonVariants({ variant: "secondary" }), 'cursor-pointer')}>LinkedIn</a>
+    <div class='flex gap-x-4'>
+      <a href="https://github.com/angelMarcosCastilla" target="_blank" rel="noopener noreferrer" class={cn(buttonVariants({ variant: 'outline' }), 'cursor-pointer')}><Github />Github</a>
+      <a href="https://www.linkedin.com/in/angel-joel-marcos-castilla-120982215/" target="_blank" rel="noopener noreferrer" class={cn(buttonVariants({ variant: 'secondary' }), 'cursor-pointer')}>LinkedIn</a>
     </div>
   </div>
+  <div
+    class='absolute rounded-2xl -z-10 h-full w-full bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,hsla(var(--input)/.6)_1px,transparent_1px),linear-gradient(to_bottom,hsla(var(--input)/.6)_1px,transparent_1px)] bg-[size:58px_58px] [mask-image:linear-gradient(to_bottom,transparent_10%,black_50%,transparent_100%)]'
+  >
+  </div>
 </section>
-

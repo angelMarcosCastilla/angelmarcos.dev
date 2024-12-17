@@ -1,7 +1,7 @@
 ---
 import Container from './Container.astro'
 import Navbar from './Navbar.astro'
-import ToggleTheme from "@/components/ToggleTheme.astro"
+import ToggleTheme from '@/components/ToggleTheme.astro'
 ---
 
 <script is:inline>
@@ -9,12 +9,30 @@ import ToggleTheme from "@/components/ToggleTheme.astro"
   document.documentElement.classList.add(theme)
 </script>
 
-<nav class='sticky top-0 bg-background/70 backdrop-blur-lg '>
+<nav class='sticky top-4 mb-2 bg-transparent mt-4 z-10'>
   <Container>
-    <div class='flex py-2 justify-between items-center'>
-      <a href=''>AM</a>
+    <div
+      class='flex py-2 justify-between border border-transparent items-center animation rounded-3xl px-5'
+    >
+      <a href='/' class='text-xl font-bold logo'>AM</a>
       <Navbar />
       <ToggleTheme />
     </div>
   </Container>
 </nav>
+
+<style>
+  .animation {
+    animation: header-animate linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 100px;
+  }
+
+  @keyframes header-animate {
+    to {
+      background: hsla(var(--background) / 0.7);
+      border: 1px solid hsl(var(--input));
+      backdrop-filter: blur(10px);
+    }
+  }
+</style>
