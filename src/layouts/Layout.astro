@@ -1,42 +1,33 @@
 ---
 import Header from '../components/Header.astro'
 import Container from '../components/Container.astro'
+import '@/styles/base.css';
 export interface Props {
-	title: string
-	description: string
+  title: string
+  description: string
 }
 
 const { title, description } = Astro.props
 ---
 
-<!DOCTYPE html>
-<html lang='es'>
-	<head>
-		<meta charset='UTF-8' />
-		<meta name='description' content={description} />
-		<link rel="icon" type="image/x-icon" href="favicon.ico">
+<!doctype html>
+<html lang='es' >
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content={description} />
+    <link rel='icon' type='image/x-icon' href='favicon.ico' />
 
-		<meta name='viewport' content='width=device-width' />
-		<title>{title}</title>
-	</head>
-	<body class='bg-green-50 dark:bg-slate-900 relative dark:text-slate-100'>
-		<Header/>
-		<Container>
-			<slot />
-		</Container>
-	</body>
+    <meta name='viewport' content='width=device-width' />
+    <title>{title}</title>
+  </head>
+  <body class="bg-background text-foreground">
+    <Header />
+    <Container>
+      <slot />
+    </Container>
+  </body>
 </html>
 
 <style is:global>
-	body::after {
-		position: absolute;
-		content: '';
-		width: 400px;
-		height: 400px;
-		background-image: linear-gradient(to right top, #05193754, #004d7a3b, #00879353, #00bf7351, #a6eb123a);
-		top: 0;
-		right: 0;
-		z-index: -1;
-		filter: blur(100px);
-	}
+  
 </style>

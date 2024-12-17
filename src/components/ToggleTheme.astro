@@ -1,28 +1,40 @@
-<button aria-label='toggle' id='toggle'>🔅</button>
+---
+import { MoonIcon } from 'lucide-svelte'
+import { SunIcon } from 'lucide-svelte'
+import { Button } from '@/components/ui/button'
+---
+
 <script>
   window.addEventListener('DOMContentLoaded', () => {
     const $swtich = document.querySelector('#toggle') as HTMLInputElement
-
-    if (!$swtich) return
+    const $iconSun = document.querySelector('#icon-sun') as HTMLInputElement
+    const $iconMoon = document.querySelector('#icon-moon') as HTMLInputElement
 
     const theme = localStorage.getItem('theme') ?? 'light'
 
-    if (theme === 'dark') {
-      $swtich.textContent = '🌙'
-    } else {
-      $swtich.textContent = '🔅'
+    function toggleIcon(theme: string) {
+      if (theme === 'dark') {
+        $iconMoon.style.display = 'none'
+        $iconSun.style.display = 'block'
+      } else {
+        $iconSun.style.display = 'none'
+        $iconMoon.style.display = 'block'
+      }
     }
-
+    toggleIcon(theme)
     $swtich?.addEventListener('click', () => {
       const theme = localStorage.getItem('theme') ?? 'light'
       const newtheme = theme === 'light' ? 'dark' : 'light'
-      if (newtheme === 'dark') {
-        $swtich.textContent = '🌙'
-      } else {
-        $swtich.textContent = '🔅'
-      }
+      toggleIcon(newtheme)
       localStorage.setItem('theme', newtheme)
       document.documentElement.className = newtheme
     })
   })
 </script>
+
+<div>
+  <Button variant='ghost' id='toggle' >
+    <SunIcon id='icon-sun' class='h-5 w-5' style='display: none' />
+    <MoonIcon id='icon-moon' class='h-5 w-5' style='display: none' />
+  </Button>
+</div>

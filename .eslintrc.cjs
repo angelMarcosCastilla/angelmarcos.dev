@@ -17,7 +17,7 @@ module.exports = {
         extraFileExtensions: ['.astro']
       },
       rules: {
-        'no-tabs': 'off'
+        'no-tabs': 'off',
       }
     }
   ]

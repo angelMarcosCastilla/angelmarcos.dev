@@ -5,7 +5,7 @@ interface Props {
 const { title } = Astro.props
 ---
 
-<h2 class='text-3xl font-bold'>
+<h2 class='text-3xl font-bold text-foreground'>
   {title}
 </h2>
 
@@ -14,7 +14,7 @@ const { title } = Astro.props
     width: max-content;
     padding: ;
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
   h2::after {
     content: '';
@@ -24,8 +24,8 @@ const { title } = Astro.props
     width: 70%;
     height: 3px;
     border-radius: 10px;
-    background: #11998e;
-    background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
-    background: linear-gradient(to right, #38ef7d, #11998e);
+    background: #0545bd;
+    background: -webkit-linear-gradient(to right, #0545bd, transparent);
+    background: linear-gradient(to right, #0545bd, transparent);
   }
 </style>

@@ -1,4 +1,5 @@
 <script>
+  import { cn } from '@/utils'
   import { onMount } from 'svelte'
 
   export let image
@@ -18,5 +19,10 @@
   })
 </script>
 
-<img {src} {alt}  class={`w-full h-full ${isLoading ? "blur-xl [clip-path:inset(0)] ": ""}`} />
-
+<div class="p-2 rounded-md border border-input">
+  <img
+    {src}
+    {alt}
+    class={cn('w-full h-full rounded-md', isLoading ? 'blur-xl [clip-path:inset(0)]' : '')}
+  />
+</div>
