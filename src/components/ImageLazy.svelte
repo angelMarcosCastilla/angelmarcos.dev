@@ -1,4 +1,6 @@
 <script>
+</script> 
+<!-- <script>
   import { onMount } from 'svelte'
 
   export let image
@@ -18,5 +20,6 @@
   })
 </script>
 
-<img {src} {alt}  class={`w-full h-full ${isLoading ? "blur-xl [clip-path:inset(0)] ": ""}`} />
+<img {src} {alt}  class={`w-full h-full ${isLoading ? "blur-xl [clip-path:inset(0)] ": ""}`} /> -->
+<Moon  />
 

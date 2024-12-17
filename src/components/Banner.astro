@@ -1,36 +1,26 @@
 ---
-import BannerIlustration from './BannerIlustration.astro'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/utils'
+import {Github} from "lucide-svelte"
 ---
 
-<section
-  class='md:min-h-[600px] py-28 md:py-0 gap-6 flex flex-col-reverse md:flex-row md:justify-between md:items-center'
->
-  <div class='text-center md:text-left'>
-    <h1 class='md:text-3xl text-2xl font-bold mb-2 uppercase'>Desarrollador web - Frontend</h1>
-    <p class='text-base'>
-      Apasoniado por la creacion de paginas web, que sean accesible e impactante.
-    </p>
-    <div class='mt-8 flex gap-x-5'>
-      <a target="_blank" rel="noopener noreferrer" href='https://github.com/angelMarcosCastilla' class='bg-gray-800 hover:bg-em-900 text-white font-bold py-2 px-4 rounded'
-        >Repositorio</a
-      >
-      <a rel="noopener noreferrer" target="_blank" href='https://www.linkedin.com/in/angel-joel-marcos-castilla-120982215/' class=' text-white font-bold py-2 px-4 rounded bg-[#0E76A8]'
-        >Linkedin</a
-      >
+<section class='py-20'>
+  <div class='flex flex-col max-w-[500px] mx-auto'>
+    <h1 class="mb-7">
+      <span class='block text-xl'>Hola 👋, Soy</span>
+      <span class='text-5xl font-bold'>Angel Marcos</span>
+    </h1>
+    <div class="mb-6">
+      <h2 class='text-xl font-bold mb-2'>Desarrollador web - Frontend</h2>
+      <p class='text-base'>
+        Apasionado por la creación de páginas web, que sean accesible e impactante. Especializado en
+        crear experiencias digitales excepcionales.
+      </p>
     </div>
-  </div>
-  <div class='md:basis-[500px]'>
-    <BannerIlustration />
+    <div class="flex gap-x-4">
+      <a class={cn(buttonVariants({ variant: 'outline' }), 'cursor-pointer')}><Github/>Github</a>
+      <a class={cn(buttonVariants({ variant: "secondary" }), 'cursor-pointer')}>LinkedIn</a>
+    </div>
   </div>
 </section>
 
-<style>
-  h1 {
-    background: #11998e;
-    background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
-    background: linear-gradient(to right, #38ef7d, #11998e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-</style>
