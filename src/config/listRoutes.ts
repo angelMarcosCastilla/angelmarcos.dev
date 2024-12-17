@@ -6,12 +6,12 @@ interface IRoute {
 export const routes: IRoute[] = [
   {
     path: '/',
-    name: 'Home'
+    name: 'Inicio'
   },
-  {
+  /* {
     path: '/blog',
     name: 'Blog'
-  },
+  }, */
  /*  {
     path: '/contact',
     name: 'Contact'
