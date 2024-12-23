@@ -1,18 +1,25 @@
 ---
+import Subtitle from '@/components/Subtitle.astro'
 import Layout from '@/layouts/Layout.astro'
-const blog = await Astro.glob('./*.md')
+import { getCollection } from 'astro:content'
+const allBlogPosts = await getCollection('blog')
 ---
+
 <Layout title='Angel Marcos | Blog 📚' description='lista de los blog'>
-  <h1 class="my-6 text-xl text-yellow-500">Publicaciones recientes</h1>
-  <section class="flex flex-col gap-y-4">
-  {
-    blog.map((post) => (
-      <a href={post.url} class="rounded-lg border bg-card text-card-foreground shadow-sm hover:border hover:border-yellow-500">
-      <div class="flex flex-col space-y-1.5 p-4 px-5">
-        <h3 class="text-xl font-bold">{post.frontmatter.title}</h3>
-        <p class="text-gray-500 dark:text-gray-400">{post.frontmatter.date}</p>
-      </div>
-      </a>
-    ))
-  }
-</section></Layout>
+  <Subtitle title='Publicaciones recientes' class='text-xl m-0 mt-5 mb-6' />
+  <section class='flex flex-col gap-y-3'>
+    {
+      allBlogPosts.map(({ data: post, slug }) => (
+        <a
+          href={`/blog/${slug}`}
+          class='rounded-lg border bg-card text-card-foreground shadow-sm border-input'
+        >
+          <div class='flex flex-col space-y-1.5 p-4 px-5'>
+            <h3 class='text-base font-bold'>{post.title}</h3>
+            <p class='text-secondary-foreground'>{post.description}</p>
+          </div>
+        </a>
+      ))
+    }
+  </section>
+</Layout>

@@ -5,8 +5,13 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
 ---
 
 <script is:inline>
-  const theme = localStorage.getItem('theme') ?? 'dark'
-  document.documentElement.classList.add(theme)
+  const addTheme = () => {
+    const theme = localStorage.getItem('theme') ?? 'dark'
+    document.documentElement.classList.add(theme)
+  }
+
+  addTheme()
+  document.addEventListener('astro:after-swap', addTheme)
 </script>
 
 <nav class='sticky top-4 mb-2 bg-transparent mt-4 z-10'>

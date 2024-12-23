@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 ---
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
+  function toggleIcon() {
     const $swtich = document.querySelector('#toggle') as HTMLInputElement
     const $iconSun = document.querySelector('#icon-sun') as HTMLInputElement
     const $iconMoon = document.querySelector('#icon-moon') as HTMLInputElement
@@ -29,11 +29,17 @@ import { Button } from '@/components/ui/button'
       localStorage.setItem('theme', newtheme)
       document.documentElement.className = newtheme
     })
+  }
+  document.addEventListener('astro:after-swap', () => {
+    toggleIcon()
+  })
+  document.addEventListener('DOMContentLoaded', () => {
+    toggleIcon()
   })
 </script>
 
 <div>
-  <Button variant='ghost' id='toggle' >
+  <Button variant='ghost' id='toggle' arial-label='Cambiar entre modo oscuro y claro'>
     <SunIcon id='icon-sun' class='h-5 w-5' style='display: none' />
     <MoonIcon id='icon-moon' class='h-5 w-5' style='display: none' />
   </Button>
