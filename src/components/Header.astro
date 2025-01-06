@@ -1,5 +1,6 @@
 ---
 import Container from './Container.astro'
+import Logo from './Logo.astro'
 import Navbar from './Navbar.astro'
 import ToggleTheme from '@/components/ToggleTheme.astro'
 ---
@@ -19,7 +20,7 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
     <div
       class='flex py-2 justify-between border border-transparent items-center animation rounded-3xl px-5'
     >
-      <a href='/' class='text-xl font-bold logo'>AM</a>
+      <a href='/' class='text-xl font-bold logo'><Logo/></a>
       <Navbar />
       <ToggleTheme />
     </div>

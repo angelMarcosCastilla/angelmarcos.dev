@@ -16,7 +16,7 @@ Cuando trabajamos con arrays en JavaScript, a menudo surge la necesidad de orden
 
 Una de las técnicas más comunes y efectivas para ordenar aleatoriamente un array es el algoritmo de Fisher-Yates, también conocido como el algoritmo de mezcla o shuffle. Este algoritmo es eficiente y garantiza una distribución uniforme de elementos aleatorios.
 
-```javascript
+```js
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
