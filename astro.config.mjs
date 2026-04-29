@@ -7,7 +7,7 @@ import svelte from '@astrojs/svelte'
 export default defineConfig({
   markdown: {
     shikiConfig: {
-      theme: 'hu',
+      theme: 'github-light',
     },
   },
   integrations: [
