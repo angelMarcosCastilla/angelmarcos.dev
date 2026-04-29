@@ -4,36 +4,43 @@ import Subtitle from './Subtitle.astro'
 
 <section class='py-8 my-12 px-5 bg-secondary/50 dark:bg-secondary/30 rounded-lg'>
   <div class=''>
-    <Subtitle title='Sobre mi' />
-    <p class='text-base'>
-      Soy desarrollador Full Stack enfocado en crear aplicaciones web funcionales, rápidas y
-      centradas en el usuario. Me especializo en construir soluciones completas, desde la idea hasta
-      su implementación, cuidando tanto el rendimiento como la experiencia final.
-    </p>
-    <p>
-      Comencé aprendiendo desarrollo web por mi cuenta, desarrollando proyectos que evolucionaron en
-      aplicaciones más completas. Actualmente busco mi primera oportunidad profesional para aportar
-      valor, seguir creciendo y enfrentar nuevos desafíos en el desarrollo de software.
-    </p>
+    <div class='flex flex-col items-center justify-center'>
+      <Subtitle title='Sobre mi' />
+      <div>
+        <div class='flex justify-center max-w-[75ch] flex-col mx-auto'>
+          <p class='text-base text-center mb-4'>
+            Soy desarrollador Full Stack enfocado en crear aplicaciones web funcionales, rápidas y
+            centradas en el usuario. Me especializo en construir soluciones completas, desde la idea
+            hasta su implementación, cuidando tanto el rendimiento como la experiencia final.
+          </p>
+          <p class='text-base text-center'>
+            Comencé aprendiendo desarrollo web por mi cuenta, desarrollando proyectos que
+            evolucionaron en aplicaciones más completas. Actualmente busco mi primera oportunidad
+            profesional para aportar valor, seguir creciendo y enfrentar nuevos desafíos en el
+            desarrollo de software.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      img {
+        filter: grayscale(100%);
+      }
+      section {
+        position: relative;
+      }
+      section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        background-color: #1527c740;
+        z-index: -1;
+        filter: blur(100px);
+      }
+    </style>
   </div>
 </section>
-
-<style>
-  img {
-    filter: grayscale(100%);
-  }
-  section {
-    position: relative;
-  }
-  section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 200px;
-    background-color: #1527c740;
-    z-index: -1;
-    filter: blur(100px);
-  }
-</style>
