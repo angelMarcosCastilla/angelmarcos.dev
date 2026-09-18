@@ -6,20 +6,52 @@ const allBlogPosts = await getCollection('blog')
 ---
 
 <Layout title='Angel Marcos | Blog 📚' description='lista de los blog'>
-  <Subtitle title='Publicaciones recientes' class='text-xl m-0 mt-5 mb-6' />
-  <section class='flex flex-col gap-y-3'>
+  <Subtitle title='Publicaciones recientes' class='text-xl m-0 mt-5 mb-12' />
+  <section class='flex flex-col gap-y-3 max-w-[750px] mx-auto'>
     {
-      allBlogPosts.map(({ data: post, slug }) => (
+      allBlogPosts.map(({ data: post, id }) => (
         <a
-          href={`/blog/${slug}`}
+          href={`/blog/${id}`}
           class='rounded-lg border bg-card text-card-foreground shadow-sm border-input'
         >
-          <div class='flex flex-col space-y-1.5 p-4 px-5'>
-            <h3 class='text-base font-bold'>{post.title}</h3>
-            <p class='text-secondary-foreground'>{post.description}</p>
-          </div>
+          <article class='flex flex-col space-y-1.5 p-4 px-5'>
+            <header class='flex items-center gap-3 mb-2'>
+              <span class='text-sm font-bold text-blue-600 dark:text-blue-400 uppercase'>
+                {post.stack}
+              </span>
+              <span class='text-xs '>{post.date}</span>
+            </header>
+            <div class='mb-2'>
+              <h3 class='text-base font-bold'>{post.title}</h3>
+              <p class='text-secondary-foreground text-sm'>{post.description}</p>
+            </div>
+
+            <div class='flex justify-between items-center gap-y-2'>
+              <div class='flex flex-wrap gap-2 mt-2'>
+                {post.tags.map((tag) => (
+                  <span class='text-xs'>#{tag}</span>
+                ))}
+              </div>
+
+              <span class='text-xs text-secondary-foreground'>{post.minutes} min</span>
+            </div>
+          </article>
         </a>
       ))
     }
   </section>
 </Layout>
+
+<style>
+  section::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background-color: #1527c740;
+    z-index: -1;
+    filter: blur(140px);
+  }
+</style>

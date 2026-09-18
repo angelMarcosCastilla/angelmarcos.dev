@@ -1,9 +1,9 @@
 ---
-import { ClientRouter } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions'
 import Header from '@/components/Header.astro'
 import Container from '@/components/Container.astro'
 
-import '@/styles/base.css';
+import '@/styles/base.css'
 export interface Props {
   title: string
   description: string
@@ -13,20 +13,26 @@ const { title, description } = Astro.props
 ---
 
 <!doctype html>
-<html lang='es' >
+<html lang='es'>
   <head>
     <meta charset='UTF-8' />
     <link rel='icon' type='image/x-icon' href='favicon.ico' />
     <meta name='viewport' content='width=device-width' />
     <title>{title}</title>
     <meta name='description' content={description} />
+    <link
+      rel='preload'
+      href='/font/inter-latin-wght-normal.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin=''
+    />
     <ClientRouter />
   </head>
-  <body class="bg-background text-foreground">
+  <body class='bg-background text-foreground'>
     <Header />
     <Container>
       <slot />
     </Container>
   </body>
 </html>
-

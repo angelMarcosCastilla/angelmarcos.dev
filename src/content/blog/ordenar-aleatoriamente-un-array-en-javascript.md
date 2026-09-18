@@ -8,6 +8,7 @@ image:
   src: /assets/img/blog/1.jpg
   alt: Mi primer blog
 tags: []
+stack: JavaScript
 ---
 
 Cuando trabajamos con arrays en JavaScript, a menudo surge la necesidad de ordenar sus elementos. Sin embargo, en ocasiones queremos mezclar los elementos de forma aleatoria en lugar de seguir un orden ascendente o descendente. En este artículo, exploraremos cómo lograr esto de manera sencilla y eficiente.

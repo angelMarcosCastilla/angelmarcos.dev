@@ -1,25 +1,153 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { getCollection, render } from 'astro:content'
+import { getEntry, render } from 'astro:content'
 
-export async function getStaticPaths() {
-  const docs = await getCollection('blog')
-  return docs.map((blog) => ({
-    params: { blog: blog.slug },
-    props: { blog }
-  }))
+export const prerender = false
+
+const { blog: id } = Astro.params
+
+if (!id) {
+  return Astro.redirect('/404')
 }
 
-const { blog } = Astro.props
-const { data } = blog
-const { description, title } = data
+const blog = await getEntry('blog', id)
+
+if (!blog) {
+  return Astro.redirect('/404')
+}
+
+const { title, description, tags } = blog.data
 
 const { Content } = await render(blog)
 ---
 
 <Layout title={title} description={description}>
-  <div class='prose max-w-full px-2 md:pl-28 dark:prose-invert py-6'>
-    <h1 class='text-3xl font-bold text-foreground'>{title}</h1>
-    <Content />
+  <div class='prose max-w-[750px] py-2 dark:prose-invert m-auto'>
+    <div class='flex flex-wrap justify-center gap-2 pt-6 pb-3'>
+      {tags.map((tag) => <span class='skill-chip'>{tag}</span>)}
+    </div>
+    <div class='py-4'>
+      <h1
+        style='text-wrap: balance; text-align: center;'
+        class='text-4xl font-bold text-foreground'
+      >
+        {title}
+      </h1>
+    </div>
+    <div class='content'>
+      <Content />
+    </div>
   </div>
 </Layout>
+
+<style is:global>
+  .code-block {
+    @apply my-6 overflow-hidden rounded-lg;
+  }
+
+  .code-block-header {
+    @apply flex items-center justify-between px-4 py-2;
+    background: #282c34;
+  }
+
+  .code-block-language {
+    @apply text-xs font-medium uppercase tracking-wider text-zinc-400;
+  }
+
+  .code-copy-button {
+    @apply rounded-md px-3 py-1 text-xs font-medium text-zinc-300;
+    @apply transition-colors hover:bg-white/10 hover:text-white;
+  }
+
+  .code-block pre {
+    @apply m-0 rounded-none;
+  }
+
+  .prose::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background-color: #7415c740;
+    z-index: -1;
+    filter: blur(150px);
+  }
+
+  .skill-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    backdrop-filter: blur(10px);
+    background: hsla(var(--secondary) / 0.5);
+    border: 1px solid hsla(var(--secondary) / 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  .content a {
+    @apply text-blue-600 underline dark:text-blue-400;
+  }
+</style>
+
+<script>
+  function initCodeBlocks() {
+    const blocks = document.querySelectorAll('pre[data-code-block="true"]')
+
+    blocks.forEach((pre) => {
+      if (pre.parentElement?.dataset.codeWrapper) {
+        return
+      }
+
+      const wrapper = document.createElement('div')
+
+      wrapper.dataset.codeWrapper = 'true'
+      wrapper.className = 'code-block'
+
+      pre.parentNode?.insertBefore(wrapper, pre)
+      wrapper.appendChild(pre)
+
+      // Header
+      const header = document.createElement('div')
+      header.className = 'code-block-header'
+
+      // Lenguaje
+      const language = document.createElement('span')
+      language.className = 'code-block-language'
+      language.textContent = pre.dataset.language ?? 'text'
+
+      // Botón
+      const button = document.createElement('button')
+
+      button.type = 'button'
+      button.className = 'code-copy-button'
+      button.textContent = 'Copiar'
+
+      button.addEventListener('click', async () => {
+        const code = pre.querySelector('code')
+
+        if (!code) return
+
+        await navigator.clipboard.writeText(code.textContent ?? '')
+
+        button.textContent = 'Copiado ✓'
+
+        setTimeout(() => {
+          button.textContent = 'Copiar'
+        }, 1500)
+      })
+
+      header.appendChild(language)
+      header.appendChild(button)
+
+      wrapper.insertBefore(header, pre)
+    })
+  }
+
+  document.addEventListener('DOMContentLoaded', initCodeBlocks)
+  document.addEventListener('astro:page-load', initCodeBlocks)
+</script>

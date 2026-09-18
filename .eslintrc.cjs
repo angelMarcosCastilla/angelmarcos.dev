@@ -1,3 +1,5 @@
+const { rules } = require('@typescript-eslint/eslint-plugin')
+
 module.exports = {
   env: {
     browser: true,
@@ -17,8 +19,11 @@ module.exports = {
         extraFileExtensions: ['.astro']
       },
       rules: {
-        'no-tabs': 'off',
+        'no-tabs': 'off'
       }
     }
-  ]
+  ],
+  rules: {
+    'space-before-function-paren': 'off'
+  }
 }
