@@ -4,6 +4,8 @@ import tailwind from '@astrojs/tailwind'
 import svelte from '@astrojs/svelte'
 import { codeBlockTransformer } from './src/utils'
 
+import vercel from '@astrojs/vercel'
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -18,5 +20,7 @@ export default defineConfig({
       applyBaseStyles: true
     }),
     svelte()
-  ]
+  ],
+
+  adapter: vercel()
 })
