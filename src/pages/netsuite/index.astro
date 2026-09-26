@@ -11,7 +11,7 @@ import Blog from './component/Blog.svelte'
 <NetsuiteLayout title='Angel Marcos' description='Desarrollador Suitescript, Netsuite'>
   <main class='grid md:grid-cols-[1fr_3fr] gap-4 pt-12 px-6'>
     <div class='flex gap-4 flex-col order-2 md:order-1'>
-      <Card title='Contactame'>
+      <Card title='Contactame' id='contact'>
         <div class='min-h-200px'>
           <ul>
             <li class='font-bold'>Peru - Lima</li>
@@ -20,7 +20,7 @@ import Blog from './component/Blog.svelte'
           </ul>
         </div>
       </Card>
-      <Card title='Tecnologias'>
+      <Card title='Tecnologias' id='tecno'>
         <h3 class='font-bold'>SuiteScript 2.x / 2.1</h3>
         <ul class='list-disc ml-8 mb-2'>
           <li>Client Script</li>
@@ -57,7 +57,7 @@ import Blog from './component/Blog.svelte'
       </Card>
     </div>
     <div class='flex gap-4 flex-col order-1 md:order-2'>
-      <Card title='Presentación'>
+      <Card title='Presentación' id='presentation'>
         <div class='flex flex-col max-w-[750px] mx-auto'>
           <h1 class='mb-7'>
             <span class='block text-xl'>Hola 👋, Soy</span>
@@ -95,10 +95,10 @@ import Blog from './component/Blog.svelte'
           </div>
         </div>
       </Card>
-      <Card title='Experiencias'>
+      <Card title='Experiencias' id='experience'>
         <NsExperience />
       </Card>
-      <Card title='Blog'>
+      <Card title='Blog' id='blog'>
         <Blog client:visible />
       </Card>
     </div>

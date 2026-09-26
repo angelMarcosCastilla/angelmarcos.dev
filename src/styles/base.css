@@ -79,7 +79,7 @@ html {
   font-family: 'Netsuite Font', open-sans, inter, system-ui, sans-serif;
   background-color: var(--background);
   font-size: 14px;
-  color: #121314
+  color: #121314;
 }
 
 .card-ns {
@@ -88,4 +88,8 @@ html {
   border: 1px solid #e2e8f0;
   font-size: 14px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+html:has(.netsuite-theme) {
+  scroll-behavior: smooth;
 }
