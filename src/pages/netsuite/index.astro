@@ -1,0 +1,106 @@
+---
+import NetsuiteLayout from '@/layouts/NetsuiteLayout.astro'
+import Card from './component/Card.astro'
+import NsExperience from '@/components/NsExperience.astro'
+import { cn } from '@/utils'
+import { buttonVariants } from '@/components/ui/button'
+import { Github } from 'lucide-svelte'
+import Blog from './component/Blog.svelte'
+---
+
+<NetsuiteLayout title='Angel Marcos' description='Desarrollador Suitescript, Netsuite'>
+  <main class='grid md:grid-cols-[1fr_3fr] gap-4 pt-12 px-6'>
+    <div class='flex gap-4 flex-col order-2 md:order-1'>
+      <Card title='Contactame'>
+        <div class='min-h-200px'>
+          <ul>
+            <li class='font-bold'>Peru - Lima</li>
+            <li>📱 +51 924463095</li>
+            <li>📧 angelmarcoscastilla15@gmail.com</li>
+          </ul>
+        </div>
+      </Card>
+      <Card title='Tecnologias'>
+        <h3 class='font-bold'>SuiteScript 2.x / 2.1</h3>
+        <ul class='list-disc ml-8 mb-2'>
+          <li>Client Script</li>
+          <li>User Event</li>
+          <li>Suitelet</li>
+          <li>Map/Reduce</li>
+          <li>Scheduled Script</li>
+          <li>RESTlet</li>
+          <li>Mass Update</li>
+          <li>Portlet</li>
+        </ul>
+
+        <h3 class='font-bold'>NetSuite</h3>
+
+        <ul class='list-disc ml-8 mb-2'>
+          <li>Saved Searches</li>
+          <li>Workflows</li>
+          <li>Custom Records</li>
+          <li>Custom Forms</li>
+          <li>Custom Fields</li>
+          <li>Integraciones</li>
+        </ul>
+
+        <h3 class='font-bold'>Web</h3>
+
+        <ul class='list-disc ml-8 mb-2'>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>REST APIs</li>
+          <li>Git</li>
+        </ul>
+      </Card>
+    </div>
+    <div class='flex gap-4 flex-col order-1 md:order-2'>
+      <Card title='Presentación'>
+        <div class='flex flex-col max-w-[750px] mx-auto'>
+          <h1 class='mb-7'>
+            <span class='block text-xl'>Hola 👋, Soy</span>
+            <span class='text-5xl font-bold'>Angel Marcos</span>
+          </h1>
+          <div class='mb-6'>
+            <h2 class='text-xl font-bold mb-2'>SuiteScript Developer · Full Stack Developer</h2>
+            <p class='text-balance mb-2'>
+              Soy desarrollador enfocado en NetSuite, SuiteScript y desarrollo web. Me gusta
+              entender cómo funciona un proceso de negocio, encontrar aquello que puede mejorarse y
+              convertirlo en una solución tecnológica.
+            </p>
+            <p>
+              Trabajo principalmente con SuiteScript, JavaScript y APIs, creando automatizaciones,
+              personalizaciones e integraciones que ayudan a simplificar procesos y reducir trabajo
+              manual. También disfruto construir aplicaciones web y experimentar con nuevas
+              tecnologías. Para mí, escribir código no es solamente resolver un problema técnico,
+              sino crear soluciones que realmente aporten valor.
+            </p>
+          </div>
+          <div class='flex gap-x-4'>
+            <a
+              href='https://github.com/angelMarcosCastilla/netsuite-utilities'
+              target='_blank'
+              rel='noopener noreferrer'
+              class={cn(buttonVariants({ variant: 'ns-primary' }), 'cursor-pointer')}
+              ><Github class='w-5 h-5' />Github</a
+            >
+            <a
+              href='https://www.linkedin.com/in/angel-joel-marcos-castilla-120982215/'
+              target='_blank'
+              rel='noopener noreferrer'
+              class={cn(buttonVariants({ variant: 'ns-secondary' }), 'cursor-pointer')}>LinkedIn</a
+            >
+          </div>
+        </div>
+      </Card>
+      <Card title='Experiencias'>
+        <NsExperience />
+      </Card>
+      <Card title='Blog'>
+        <Blog client:visible />
+      </Card>
+    </div>
+  </main>
+</NetsuiteLayout>

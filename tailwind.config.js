@@ -17,6 +17,9 @@ const config = {
     },
     extend: {
       colors: {
+        nsPrimary: '#325c72',
+        nsPrimaryHover: '#2e566b',
+        nsBackground: '#fbf9f8',
         border: 'hsl(var(--border) / <alpha-value>)',
         input: 'hsl(var(--input) / <alpha-value>)',
         ring: 'hsl(var(--ring) / <alpha-value>)',

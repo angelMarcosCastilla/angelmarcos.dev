@@ -1,0 +1,92 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import HeaderBar from '@/components/HeaderBar.astro'
+
+import '@/styles/base.css'
+import Logo from '@/components/Logo.astro'
+export interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <link rel='icon' type='image/x-icon' href='favicon.ico' />
+    <meta name='viewport' content='width=device-width' />
+    <title>{title}</title>
+    <meta name='description' content={description} />
+    <style>
+      @font-face {
+        font-display: fallback;
+        font-family: 'Netsuite Font';
+        src: url('/font/netsuite-font.woff2') format('woff2');
+      }
+    </style>
+    <ClientRouter />
+  </head>
+  <body class='netsuite-theme'>
+    <header>
+      <div style="width:100%;" class="overflow-hidden">
+        <HeaderBar />
+      </div>
+      <div class='flex h-14 items-center justify-between px-6 pe-9'>
+        <Logo />
+        <div class='flex items-center gap-x-5 bg-white'>
+          <div>
+            <svg
+              role='presentation'
+              data-border-radius='square'
+              data-widget='Image'
+              data-status='none'
+              style='width: 20px; height: 20px;'
+              viewBox='0 0 24 24'
+              xmlns='http://www.w3.org/2000/svg'
+              ><path
+                fill-rule='evenodd'
+                d='M9 14c4.244 0 6.888 2.775 6.997 6.745L16 21v1h-2v-1c0-3.036-1.809-5-5-5-3.107 0-4.904 1.862-4.996 4.763L4 21v1H2v-1c0-4.105 2.666-7 7-7m9.496 1.132c2.118 1.21 3.41 3.272 3.499 5.607L22 21v1h-2v-1c0-1.634-.832-3.088-2.285-4.005l-.211-.127zM16 4a5 5 0 0 1 0 10 4.94 4.94 0 0 1-2.25-.539l-.255-.14 1.011-1.725c.45.264.96.404 1.494.404a3 3 0 0 0 .177-5.995L15.999 6zM9 2a5 5 0 1 1 0 10A5 5 0 0 1 9 2m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6'
+              ></path></svg
+            >
+          </div>
+          <div class='flex flex-col'>
+            <span class='font-semibold'>Angel Marcos</span>
+            <span class='text-xs uppercase'>Suitescript Developer</span>
+          </div>
+        </div>
+      </div>
+      <nav class='nav-bar'>
+        <a href="#presentation">Presentación</a>
+        <a href="#experience">Experiencias</a>
+        <a href="#tecno">Tecnologías</a>
+        <a href="#blog">Blog Recientes</a>
+      </nav>
+
+      <slot />
+    </header>
+  </body>
+</html>
+
+<style>
+  .nav-bar {
+    background-color: var(--primary);
+    @apply flex items-center  px-4  text-white gap-x-3;
+
+    & a {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      height: 40px;
+      padding: 0px 12px;
+      cursor: pointer;
+      @apply text-white;
+      font-weight: 600;
+      &:hover {
+        background-color: var(--primary-hover);
+      }
+    }
+  }
+</style>

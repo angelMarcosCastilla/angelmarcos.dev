@@ -29,6 +29,10 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    --ns-primary: #325c72;
+    --ns-primary-hover: #2e566b;
+    --ns-background: #fbf9f8;
   }
 
   .dark {
@@ -56,9 +60,22 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    & .logo-dynamic {
+      filter: invert(.5);
+    }
   }
 }
 
 html {
   font-family: Inter Variable, Inter Prevent Layout Shift, system-ui, sans-serif
+}
+
+.netsuite-theme {
+  --primary: #325c72;
+  --primary-hover: #1e3648;
+  --background: #fbf9f8;
+  font-family: 'Netsuite Font', open-sans, inter, system-ui, sans-serif;
+  background-color: var(--background);
+
 }
