@@ -2,15 +2,15 @@
 const { title } = Astro.props
 ---
 
-<article>
+<article class='card-ns'>
   <h2 class='text-[16px] font-bold mb-4'>{title}</h2>
   <div>
     <slot />
   </div>
 </article>
 
-<style>
-  article {
+<style is:global>
+  .card-ns {
     @apply bg-white rounded-sm shadow-sm p-6;
     border: 1px solid #e2e8f0;
     font-size: 14px;

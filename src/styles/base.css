@@ -61,10 +61,11 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    & .logo-dynamic {
-      filter: invert(.5);
-    }
   }
+}
+
+.dark .logo-dynamic {
+  filter: invert(.5);
 }
 
 html {
@@ -77,5 +78,6 @@ html {
   --background: #fbf9f8;
   font-family: 'Netsuite Font', open-sans, inter, system-ui, sans-serif;
   background-color: var(--background);
-
+  font-size: 14px;
+  color: #121314
 }
