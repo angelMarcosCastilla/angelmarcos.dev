@@ -23,9 +23,20 @@
   })
 </script>
 
-<div>
+<div class="flex flex-col gap-3">
   {#if status === 'Loading'}
-    <p>cargando</p>
+    <div class="flex flex-col gap-3" role="status" aria-label="Cargando blogs">
+      {#each [1, 2, 3] as placeholder (placeholder)}
+        <div class="rounded-lg bg-card p-4 px-5 shadow-sm" aria-hidden="true">
+          <div class="mb-3 h-3 w-24 animate-pulse rounded bg-muted"></div>
+          <div class="mb-4 h-5 w-3/4 animate-pulse rounded bg-muted"></div>
+          <div class="flex gap-2">
+            <div class="h-3 w-16 animate-pulse rounded bg-muted"></div>
+            <div class="h-3 w-20 animate-pulse rounded bg-muted"></div>
+          </div>
+        </div>
+      {/each}
+    </div>
   {/if}
 
   {#if status === 'Loaded' && data.length > 0}
